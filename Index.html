@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Clicker Game</title>
+   <link rel="stylesheet" href="/Style.css">
+   <script src="/Script.js"></script>
+<body>
+    <h1>🐶🐱  Pet Clicker Game🐄🐏</h1>
+
+    <p>Pick your pet:</p>
+
+    <button onclick="choosePet('dog')">Choose Dog</button>
+      <button onclick="choosePet('cat')">Choose Cat</button>
+      <button onclick="choosePet('cow')">Choose Cow</button>
+      <button onclick="choosePet('Sheep')">Sheep</button>
+   
+      <div id="game" style="display: none;">
+        <img id="petImage" src="" alt="Your pet" width="200" />
+        <div id="counter"></div>
+        <div id="actions"></div>
+        <button onclick="playWithPet()">Play!</button>
+      </div>
+      
+      
+</body>
+
+</html> 

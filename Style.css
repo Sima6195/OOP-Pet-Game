@@ -4,6 +4,13 @@ body {
     background: hsl(340, 100%, 90%);
     color: #333;
     padding: 20px;
+    background-image: url(image.png);
+    background-image: url('image.png');
+    background-size: cover;          
+    background-repeat: no-repeat;  
+    background-position: center;     
+    background-attachment: fixed;  
+
   }
   
   h1 {
@@ -15,7 +22,7 @@ body {
     font-size: 1em;
     padding: 10px 20px;
     margin: 10px;
-    background-color: #e75454;
+    background-color: #e85ebd;
     color: white;
     cursor: pointer;
     border: none;

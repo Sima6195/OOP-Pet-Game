@@ -1,14 +1,16 @@
-
 class Pet {
-    constructor(name, sound, image) {
+    constructor(name, soundText, image, soundURL) {
       this.name = name;
-      this.sound = sound;
+      this.soundText = soundText;
       this.image = image;
+      this.sound = new Audio(soundURL); // Corrected
       this.playCount = 0;
     }
   
     speak() {
-      alert(this.sound);
+      alert(this.soundText);
+      this.sound.currentTime = 0;
+      this.sound.play();
     }
   
     play() {
@@ -22,63 +24,60 @@ class Pet {
   // Global variable to store the chosen pet
   let currentPet = null;
   
-  // ________________________________________
   // Function to choose a pet
-  // ________________________________________
   function choosePet(type) {
     if (type === 'dog') {
       currentPet = new Pet(
         'Dog',
         'Woof! 🐶',
-        'https://images.pexels.com/photos/4588431/pexels-photo-4588431.jpeg'
+        'https://images.pexels.com/photos/4588431/pexels-photo-4588431.jpeg',
+        'dog-barking-374107.mp3' 
       );
     } else if (type === 'cat') {
       currentPet = new Pet(
         'Cat',
         'Meow! 🐱',
-        'https://media.istockphoto.com/id/971002388/photo/black-cat-wearing-heart-glasses-on-pink-background.jpg?s=1024x1024&w=is&k=20&c=DX6u_0d0ipz4uHz5njfCWhNQ1bEGWOMD3H8_GoFBTKo='
+        'https://media.istockphoto.com/id/1314290357/photo/british-shorthair-kitten.jpg?s=2048x2048&w=is&k=20&c=mdCEqdiPk2P9L5rIJo8vgR90q7k8fIUbxGKOR_CJ66c=',
+        'sound-effect-cat-meow-279336.mp3' 
       );
+    } else if (type === 'chicken') {
+        currentPet = new Pet(
+          'chicken',
+          'cluck! 🐓',
+          'https://images.pexels.com/photos/33354059/pexels-photo-33354059.jpeg',
+          'chicken-sounds-farm-background-sounds-ambient-sounds-143091.mp3');
+
     } else if (type === 'cow') {
       currentPet = new Pet(
         'Cow',
         'Moo! 🐮',
-        'https://images.pexels.com/photos/31034003/pexels-photo-31034003.jpeg'
-      );
-    } else if (type === 'sheep') {
-      currentPet = new Pet(
-        'Sheep',
-        'Baa! 🐑',
-        'https://images.pexels.com/photos/7067146/pexels-photo-7067146.jpeg'
+        'https://images.pexels.com/photos/31034003/pexels-photo-31034003.jpeg',
+        'buffalo-call-379276.mp3' 
       );
     }
+      
   
-    
-      document.getElementById('petImage').src = currentPet.image;
-      document.getElementById('game').style.display = 'block';
-      updateCounter(0);
-      showFunActions(currentPet.name);
-
+    // Show pet image and game UI
+    document.getElementById('petImage').src = currentPet.image;
+    document.getElementById('game').style.display = 'block';
+    updateCounter(0);
+    showFunActions(currentPet.name);
   }
   
-  // ________________________________________
   // Function to play with the pet
-  // _________________________________________
   function playWithPet() {
     if (currentPet) {
       currentPet.play();
     }
   }
   
-  // _________________________________________
-  // Function to update the counter
-  // _________________________________________
+  
+  // Function to update the play counter
   function updateCounter(count) {
     document.getElementById('counter').innerText = `Times played: ${count}`;
   }
   
-  // _______________________________________
-  // Function + Loop: Fun pet actions
-  // _______________________________________
+  // Function to show fun actions for each pet
   function showFunActions(petName) {
     let actions = [];
   
@@ -91,7 +90,7 @@ class Pet {
     } else if (petName === 'Sheep') {
       actions = ['Baa', 'Jump', 'Graze'];
     }
-
+  
     const actionBox = document.getElementById('actions');
     actionBox.innerHTML = '<strong>Fun Actions:</strong><br>';
   

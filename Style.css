@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     background: hsl(340, 100%, 90%);
-    color: #333;
+    color: #1e1c1c;
     padding: 20px;
     background-image: url(image.png);
     background-image: url('image.png');
@@ -11,11 +11,14 @@ body {
     background-position: center;     
     background-attachment: fixed;  
 
+
   }
   
-  h1 {
+  nav {
     font-size: 2em;
     margin-bottom: 20px;
+
+   
   }
   
   button {
@@ -61,5 +64,7 @@ body {
   
   #actions {
     margin-top: 10px;
+
+    opacity: 1;
   }
   

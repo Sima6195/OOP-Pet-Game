@@ -3,7 +3,7 @@ class Pet {
       this.name = name;
       this.soundText = soundText;
       this.image = image;
-      this.sound = new Audio(soundURL); // Corrected
+      this.sound = new Audio(soundURL); 
       this.playCount = 0;
     }
   
@@ -21,10 +21,10 @@ class Pet {
     }
   }
   
-  // Global variable to store the chosen pet
+ 
   let currentPet = null;
   
-  // Function to choose a pet
+  
   function choosePet(type) {
     if (type === 'dog') {
       currentPet = new Pet(
@@ -57,14 +57,14 @@ class Pet {
     }
       
   
-    // Show pet image and game UI
+    
     document.getElementById('petImage').src = currentPet.image;
     document.getElementById('game').style.display = 'block';
     updateCounter(0);
     showFunActions(currentPet.name);
   }
   
-  // Function to play with the pet
+ 
   function playWithPet() {
     if (currentPet) {
       currentPet.play();
@@ -72,25 +72,24 @@ class Pet {
   }
   
   
-  // Function to update the play counter
+
   function updateCounter(count) {
     document.getElementById('counter').innerText = `Times played: ${count}`;
   }
   
-  // Function to show fun actions for each pet
+
   function showFunActions(petName) {
     let actions = [];
   
-    if (petName === 'Dog') {
+    if (petName.toLowerCase() === 'dog') {
       actions = ['Bark', 'Wag Tail', 'Fetch Ball'];
-    } else if (petName === 'Cat') {
+    } else if (petName.toLowerCase() === 'cat') {
       actions = ['Meow', 'Purr', 'Chase Mouse'];
-    } else if (petName === 'Cow') {
+    } else if (petName.toLowerCase() === 'cow') {
       actions = ['Moo', 'Chew Grass', 'Swish Tail'];
-    } else if (petName === 'Sheep') {
-      actions = ['Baa', 'Jump', 'Graze'];
+    } else if (petName.toLowerCase() === 'chicken') {
+      actions = ['cluck', 'Jump', 'Graze'];
     }
-  
     const actionBox = document.getElementById('actions');
     actionBox.innerHTML = '<strong>Fun Actions:</strong><br>';
   

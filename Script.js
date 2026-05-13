@@ -17,7 +17,7 @@ class Pet {
       this.playCount++;
       this.speak();
       updateCounter(this.playCount);
-      showFunActions(this.name);
+      showFunActions(this.name);`/.,mnb `
     }
   }
   
@@ -97,4 +97,6 @@ class Pet {
       actionBox.innerHTML += `✅ ${actions[i]}<br>`;
     }
   }
+
+  
   
